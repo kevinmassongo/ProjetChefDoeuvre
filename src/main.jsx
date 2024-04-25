@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
+import DataProvider from './provider/data-provider.jsx'
+import Index from '../routes/index.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <DataProvider>
+      <Index />
+    </DataProvider>
   </React.StrictMode>,
 )
