@@ -239,6 +239,7 @@ input:hover {
   font-size: 1.5rem;
   cursor: pointer;
   position: relative;
+  color: black;
 }
 
 .cart-count {

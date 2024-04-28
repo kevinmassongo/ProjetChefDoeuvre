@@ -1,18 +1,18 @@
 import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
-import ComputerContext from "../../context/computerContext";
 import Title from "../../title";
 import AddCart from "../../addCart";
 import BuyNow from "../../buyNow";
+import ShopContext from "../../context/shopContext";
 
 function PostComputerItem() {
 
     // etat
     const [numberInCart, setNumberInCart] = useState(0)
 
-    const initializesData = useContext(ComputerContext)
+    const {dataFromComputer} = useContext(ShopContext)
 
-    const data = initializesData
+    const data = dataFromComputer
 
     const useparam = useParams()
     const { id } = useparam

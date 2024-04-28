@@ -1,14 +1,13 @@
 import { useContext, useState } from "react"
-import CameraContext from "../../context/cameraContext"
+import ShopContext from "../../context/shopContext"
 import PostCameras from "./postCameras"
 
 function ShowCameras() {
-    const initializeData = useContext(CameraContext)
-    const data = initializeData
+    const {dataFromCamera} = useContext(ShopContext)
     return (
         <div className="computer-container">
             {
-                data.map((camera) =>
+                dataFromCamera.map((camera) =>
                     <div key={camera.id} className="computer">
                         <PostCameras camera={camera} />
                     </div>

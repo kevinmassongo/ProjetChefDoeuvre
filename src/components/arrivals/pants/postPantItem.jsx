@@ -3,16 +3,16 @@ import { useParams } from "react-router-dom";
 import Title from "../../title";
 import AddCart from "../../addCart";
 import BuyNow from "../../buyNow";
-import PantContext from "../../context/pantContext";
+import ShopContext from "../../context/shopContext";
 
 function PostPantItem() {
 
     // etat
     const [numberInCart, setNumberInCart] = useState(0)
 
-    const initializesData = useContext(PantContext)
+    const {dataFromPant} = useContext(ShopContext)
 
-    const data = initializesData
+    const data = dataFromPant
 
     const useparam = useParams()
     const { id } = useparam
@@ -21,7 +21,6 @@ function PostPantItem() {
 
     const pant = data.find((pant) => pant.id === +id)
 
-    console.log(data);
 
     function handleClickAdd() {
         setNumberInCart(numberInCart + 1)

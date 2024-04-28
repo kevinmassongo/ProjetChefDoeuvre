@@ -1,15 +1,13 @@
 import { useContext, useState } from "react"
-import HeadphoneContext from "../../context/headphoneContext"
 import PostHeadphones from "./postHeadphones"
+import ShopContext from "../../context/shopContext"
 
 function ShowHeadphones() {
-    const initializeData = useContext(HeadphoneContext)
-    const data = initializeData
-    console.log(data);
+    const {dataFromHeadphone} = useContext(ShopContext)
     return (
         <div className="computer-container">
             {
-                data.map((headphone) =>
+                dataFromHeadphone.map((headphone) =>
                     <div key={headphone.id} className="computer">
                         <PostHeadphones headphone={headphone} />
                     </div>

@@ -3,16 +3,16 @@ import { useParams } from "react-router-dom";
 import Title from "../../title";
 import AddCart from "../../addCart";
 import BuyNow from "../../buyNow";
-import BagContext from "../../context/bagContext";
+import ShopContext from "../../context/shopContext";
 
 function PostBagItem() {
 
     // etat
     const [numberInCart, setNumberInCart] = useState(0)
 
-    const initializesData = useContext(BagContext)
+    const {dataFromBag} = useContext(ShopContext)
 
-    const data = initializesData
+    const data = dataFromBag
 
     const useparam = useParams()
     const { id } = useparam

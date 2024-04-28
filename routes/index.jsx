@@ -7,7 +7,6 @@ import Purchase from '../src/page/purchase'
 import Register from '../src/page/register'
 import Login from '../src/page/login'
 import About from '../src/page/about'
-import Contact from '../src/page/contact'
 import NewArticle from '../src/page/newArticle'
 import Computers from '../src/page/articles/computers'
 import Pants from '../src/page/articles/pants'
@@ -31,6 +30,7 @@ import Cameras from '../src/page/articles/cameras'
 import ShowCameras from '../src/components/arrivals/cameras/showCameras'
 import PostCameraItem from '../src/components/arrivals/cameras/postCameraItem'
 import App from '../src/App'
+import Cart from '../src/page/articles/cart'
 
 function Index() {
     return (
@@ -44,7 +44,6 @@ function Index() {
                     <Route path='/register' element={<Register />}></Route>
                     <Route path='/login' element={<Login />}></Route>
                     <Route path='/newarticle' element={<NewArticle />}></Route>
-                    <Route path='/contact' element={<Contact />}></Route>
                     <Route path='/bags' element={<Bags />}>
                         <Route index element={<ShowBags />} />
                         <Route path=':id' element={<PostBagItem />} />
@@ -73,6 +72,7 @@ function Index() {
                         <Route index element={<ShowShoes />} />
                         <Route path=':id' element={<PostShoeItem />} />
                     </Route>
+                    <Route path='/cart' element={<Cart />}/>
                 </Route>
             </Routes>
         </BrowserRouter>

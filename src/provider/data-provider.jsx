@@ -1,31 +1,37 @@
-import BagContext from "../components/context/bagContext";
-import CameraContext from "../components/context/cameraContext";
-import ComputerContext from "../components/context/computerContext";
-import HeadphoneContext from "../components/context/headphoneContext";
-import PantContext from "../components/context/pantContext";
-import PhoneContext from "../components/context/phoneContext";
-import ShoeContext from "../components/context/shoeContext";
-import receiveDataFromComputer from "../data/data-arrivals/dataArrivals.json"
-import receiveDataFromPhone from "../data/data-arrivals/dataArrivals.json"
-import receiveDataFromPant from "../data/data-arrivals/dataArrivals.json"
-import receiveDataFromShoe from "../data/data-arrivals/dataArrivals.json"
-import receiveDataFromHeadphone from "../data/data-arrivals/dataArrivals.json"
-import receiveDataFromBag from "../data/data-arrivals/dataArrivals.json"
-import receiveDataFromCamera from "../data/data-arrivals/dataArrivals.json"
+import { useState } from "react";
+import ShopContext from "../components/context/shopContext";
+import receiveDataFromApi from "../data/data-arrivals/dataArrivals.json"
+// import {getDefaultCart} from "../helpers/getDefaultCart"
+
+// function getDefaultCart() {
+
+//     let cart = {};
+
+//     for (let i = 0; i < contextValue.length ; i++) {
+//         cart[i] = 0;
+//     }
+
+//     return cart;
+// }
+
 
 function DataProvider({ children }) {
 
-    const dataFromComputer = receiveDataFromComputer.computers
-    const dataFromPhone = receiveDataFromPhone.phones
-    const dataFromPant = receiveDataFromPant.pants
-    const dataFromShoe = receiveDataFromShoe.shoes
-    const dataFromHeadphone = receiveDataFromHeadphone.headphones
-    const dataFromBag = receiveDataFromBag.bag
-    const dataFromCamera = receiveDataFromCamera.cameras
+    const dataFromComputer = receiveDataFromApi.computers
+    const dataFromPhone = receiveDataFromApi.phones
+    const dataFromPant = receiveDataFromApi.pants
+    const dataFromShoe = receiveDataFromApi.shoes
+    const dataFromHeadphone = receiveDataFromApi.headphones
+    const dataFromBag = receiveDataFromApi.bag
+    const dataFromCamera = receiveDataFromApi.cameras
+
+    const contextValue = { dataFromComputer, dataFromPhone, dataFromPant, dataFromShoe, dataFromHeadphone, dataFromBag, dataFromCamera}
+
+
 
     return (
         <>
-            <ComputerContext.Provider value={dataFromComputer}>
+            {/* <ComputerContext.Provider value={dataFromComputer}>
                 <PhoneContext.Provider value={dataFromPhone}>
                     <PantContext.Provider value={dataFromPant}>
                         <ShoeContext.Provider value={dataFromShoe}>
@@ -39,7 +45,10 @@ function DataProvider({ children }) {
                         </ShoeContext.Provider>
                     </PantContext.Provider>
                 </PhoneContext.Provider>
-            </ComputerContext.Provider>
+            </ComputerContext.Provider> */}
+            <ShopContext.Provider value={contextValue}>
+                {children}
+            </ShopContext.Provider>
         </>
     )
 }

@@ -1,14 +1,13 @@
 import { useContext, useState } from "react"
 import PostPants from "./postPants"
-import PantContext from "../../context/pantContext"
+import ShopContext from "../../context/shopContext"
 
 function ShowPants() {
-    const initializeData = useContext(PantContext)
-    const data = initializeData
+    const {dataFromPant} = useContext(ShopContext)
     return (
         <div className="computer-container">
             {
-                data.map((pant) =>
+                dataFromPant.map((pant) =>
                     <div key={pant.id} className="computer">
                         <PostPants pant={pant} />
                     </div>

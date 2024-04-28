@@ -39,7 +39,9 @@ function NavBar() {
                             <FaRegCircleUser />
                         </div>
                         <div className="cart">
-                            <span><FaShoppingCart /></span>
+                            <NavLink to='/cart'>
+                                <span><FaShoppingCart /></span>
+                            </NavLink>
                             <div className="cart-count">
                                 <p>0</p>
                             </div>

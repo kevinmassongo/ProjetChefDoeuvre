@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Title from "../components/title"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 function Login() {
 
     // STATE
+
+    const navigate = useNavigate()
 
     const [showPassword, setShowPassword] = useState(false)
 
@@ -23,10 +27,23 @@ function Login() {
     } = useForm({ defaultValues: formData })
 
     //comportements
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async (users) => {
+            try {
+                const response = await axios.post('http://localhost:8000/api/user/login', users);
+                if (response.data.success) {
+                    toast.success(response.data.message)
+                    navigate("/")
+                }
+
+                if (response.data.error) {
+                    toast.error(response.data.message)
+                }
+                console.log(response.data);
+            } catch (error) {
+                console.error(error);
+            }
     }
-    
+
     const togglePasswordVisibility = () => {
         setShowPassword((prev) => !prev)
     }
@@ -70,9 +87,9 @@ function Login() {
                                             showPassword ? (
                                                 <FaEyeSlash />
                                             )
-                                            : (
-                                                <FaEye />
-                                            )
+                                                : (
+                                                    <FaEye />
+                                                )
                                         }
                                     </span>
                                     {errors.password && (

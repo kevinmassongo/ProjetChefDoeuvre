@@ -3,16 +3,16 @@ import { useParams } from "react-router-dom";
 import Title from "../../title";
 import AddCart from "../../addCart";
 import BuyNow from "../../buyNow";
-import CameraContext from "../../context/cameraContext";
+import ShopContext from "../../context/shopContext";
 
 function PostCameraItem() {
 
     // etat
     const [numberInCart, setNumberInCart] = useState(0)
 
-    const initializesData = useContext(CameraContext)
+    const {dataFromCamera} = useContext(ShopContext)
 
-    const data = initializesData
+    const data = dataFromCamera
 
     const useparam = useParams()
     const { id } = useparam

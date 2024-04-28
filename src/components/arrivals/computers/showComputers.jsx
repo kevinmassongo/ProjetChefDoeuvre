@@ -1,14 +1,14 @@
 import { useContext, useState } from "react"
-import ComputerContext from "../../context/computerContext"
 import PostComputers from "./postComputers"
+import ShopContext from "../../context/shopContext"
 
 function ShowComputers() {
-    const initializeData = useContext(ComputerContext)
-    const data = initializeData
+    const {dataFromComputer} = useContext(ShopContext)
+
     return (
         <div className="computer-container">
             {
-                data.map((computer) =>
+                dataFromBag.map((computer) =>
                     <div key={computer.id} className="computer">
                         <PostComputers computer={computer} />
                     </div>

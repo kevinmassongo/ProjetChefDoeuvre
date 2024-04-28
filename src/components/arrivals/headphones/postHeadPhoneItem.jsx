@@ -3,16 +3,16 @@ import { useParams } from "react-router-dom";
 import Title from "../../title";
 import AddCart from "../../addCart";
 import BuyNow from "../../buyNow";
-import HeadphoneContext from "../../context/headphoneContext";
+import ShopContext from "../../context/shopContext";
 
 function PostHeadphoneItem() {
 
     // etat
     const [numberInCart, setNumberInCart] = useState(0)
 
-    const initializesData = useContext(HeadphoneContext)
+    const {dataFromHeadphone} = useContext(ShopContext)
 
-    const data = initializesData
+    const data = dataFromHeadphone
 
     const useparam = useParams()
     const { id } = useparam
@@ -21,7 +21,6 @@ function PostHeadphoneItem() {
 
     const headphone = data.find((headphone) => headphone.id === +id)
 
-    console.log(data);
 
     function handleClickAdd() {
         setNumberInCart(numberInCart + 1)

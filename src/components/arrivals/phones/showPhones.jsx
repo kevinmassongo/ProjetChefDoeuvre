@@ -1,14 +1,14 @@
 import { useContext, useState } from "react"
-import PhoneContext from "../../context/phoneContext"
 import PostPhones from "./postPhones"
+import ShopContext from "../../context/shopContext"
 
 function ShowPhones() {
-    const initializeData = useContext(PhoneContext)
-    const data = initializeData
+    const {dataFromPhone} = useContext(ShopContext)
+
     return (
         <div className="computer-container">
             {
-                data.map((phone) =>
+                dataFromPhone.map((phone) =>
                     <div key={phone.id} className="computer">
                         <PostPhones phone={phone} />
                     </div>

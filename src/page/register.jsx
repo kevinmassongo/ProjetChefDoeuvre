@@ -1,14 +1,19 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Title from "../components/title"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import iconRegister from "../icon/signin.gif"
 import ImageToBase from '../helpers/imageToBase';
+import SummaryApi from '../common';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 function Register() {
     //state
+
+    const navigate = useNavigate()
 
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
@@ -20,7 +25,6 @@ function Register() {
         password: "",
         confirmPassword: "",
         profilePic: ""
-
     })
 
     const {
@@ -30,9 +34,30 @@ function Register() {
     } = useForm({ defaultValues: formData })
 
     //comportements
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async (users) => {
+
+        if (formData.password === formData.confirmPassword) {
+            try {
+                const response = await axios.post('http://localhost:8000/api/user/register', users);
+                if (response.data.success) {
+                    toast.success(response.data.message)
+                    navigate("/login")
+                }
+
+                if (response.data.error) {
+                    toast.error(response.data.message)
+                }
+                console.log(response.data);
+            } catch (error) {
+                console.error(error);
+            }
+        } else {
+            console.log("Veuillez verifier votre mot de passe ou la confirmation de votre mot de passe");
+        }
     }
+
+
+
 
     const togglePasswordVisibility = () => {
         setShowPassword((prev) => !prev)
@@ -49,7 +74,7 @@ function Register() {
 
         setFormData(() => {
             return {
-                profilePic : imagePicture
+                profilePic: imagePicture
             }
         })
     }
@@ -72,7 +97,7 @@ function Register() {
                                     <div>
                                         Modifiez le profil
                                     </div>
-                                    <input type="file" onChange={handleUploadPicture}/>
+                                    <input type="file" onChange={handleUploadPicture} />
                                 </label>
                             </form>
                         </div>
@@ -80,11 +105,7 @@ function Register() {
                             <div className="register-box-container">
                                 <div className="input-container">
                                     <input type="text" name='name' placeholder="Entrez votre nom" className="input-global" {...register("name", {
-                                        required: "Ce champ est obligatoire",
-                                        pattern: {
-                                            value: /^[A-Za-z]+$/i,
-                                            message: "Ce champ n'est pas au bon format"
-                                        }
+                                        required: "Ce champ est obligatoire"
                                     })} />
                                     <span>Kevin</span>
                                     {errors.name && (
@@ -95,7 +116,7 @@ function Register() {
 
                                 </div>
                                 <div className="input-container">
-                                    <input type="email" name='email' placeholder="Entrez votre email" className="input-global" {...register("email", {
+                                    <input type="email" name='email' placeholder="Entrez votre email" autoComplete='username' className="input-global" {...register("email", {
                                         required: "Ce champ est obligatoire",
                                         pattern: {
                                             value: /^\S+@\S+\.\S+$/,
@@ -110,10 +131,11 @@ function Register() {
                                     )}
                                 </div>
                                 <div className="input-container">
-                                    <input type={showPassword ? "text" : "password"} name='password' placeholder="Entrez votre mot de passe" className="input-global" {...register("password", {
+                                    <input type={showPassword ? "text" : "password"} autoComplete='new-password' name='password' placeholder="Entrez votre mot de passe" className="input-global" {...register("password", {
                                         required: "Ce champ est obligatoire",
+                                        minLength: 8,
                                         pattern: {
-                                            value: /^[0-9]{10}$/i,
+                                            value: /^[a-zA-Z0-9_]/i,
                                             message: "Ce champ n'est pas au bon format"
                                         }
                                     })} />
@@ -127,17 +149,18 @@ function Register() {
                                                 )
                                         }
                                     </span>
-                                    {errors.phone && (
+                                    {errors.password && (
                                         <span style={{ color: "red" }}>
                                             {errors.phone.message}
                                         </span>
                                     )}
                                 </div>
                                 <div className="input-container">
-                                    <input type={showConfirmPassword ? "text" : "password"} name='confirmPassword' placeholder="Confirmez votre mot de passe" className="input-global" {...register("confirmPassword", {
+                                    <input type={showConfirmPassword ? "text" : "password"} autoComplete='new-password' name='confirmPassword' placeholder="Confirmez votre mot de passe" className="input-global" {...register("confirmPassword", {
                                         required: "Ce champ est obligatoire",
+                                        minLength: 8,
                                         pattern: {
-                                            value: /^[0-9]{10}$/i,
+                                            value: /^[a-zA-Z0-9_]/i,
                                             message: "Ce champ n'est pas au bon format"
                                         }
                                     })} />
@@ -151,7 +174,7 @@ function Register() {
                                                 )
                                         }
                                     </span>
-                                    {errors.phone && (
+                                    {errors.confirmPassword && (
                                         <span style={{ color: "red" }}>
                                             {errors.phone.message}
                                         </span>
