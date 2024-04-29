@@ -1,8 +1,12 @@
 import { NavLink } from "react-router-dom";
 import Title from "../title";
-import AddCart from "../addCart";
+import { useContext } from "react";
+import ShopContext from "../context/shopContext";
 
 function Item(props) {
+
+    const { addToCart } = useContext(ShopContext)
+
     return (
         <>
 
@@ -18,7 +22,9 @@ function Item(props) {
                     <div>{props.marque} : {props.couleur}</div>
                 </div>
             </div>
-            <AddCart />
+            <button className="cart">
+                <div className="addCart" onClick={() => addToCart(props.id)}>Ajoutez au panier</div>
+            </button>
         </>
     )
 }

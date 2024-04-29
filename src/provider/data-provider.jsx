@@ -3,21 +3,58 @@ import ShopContext from "../components/context/shopContext";
 import all_products from "../data/data-arrivals/dataArrivals.json"
 // import {getDefaultCart} from "../helpers/getDefaultCart"
 
-// function getDefaultCart() {
+function getDefaultCart() {
 
-//     let cart = {};
+    let cart = {};
 
-//     for (let i = 0; i < contextValue.length ; i++) {
-//         cart[i] = 0;
-//     }
+    for (let index = 0; index < all_products.length; index++) {
+        cart[index] = 0;
+    }
 
-//     return cart;
-// }
+    return cart;
+}
 
 
 function DataProvider({ children }) {
 
-    const contextValue = {all_products}
+    const [cartItems, setCartItems] = useState(getDefaultCart())
+
+
+    const addToCart = (itemId) => {
+        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
+        console.log(cartItems);
+    }
+
+    const removeFromCart = (itemId) => {
+        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
+        console.log(cartItems);
+    }
+
+    const getTotalCartAmount = () => {
+        let totalAmount = 0;
+        for (const item in cartItems) {
+            if (cartItems[item] > 0) {
+                let itemInfo = all_products.find((product) => product.id === Number(item))
+                totalAmount += itemInfo.prix * cartItems[item]
+                console.log(totalAmount);
+            }
+        }
+        return totalAmount;
+    }
+
+    const getTotalCartItems = () => {
+        let totalItem = 0;
+        for (const item in cartItems) {
+            if (cartItems[item] > 0) {
+                totalItem += cartItems[item];
+            }
+        }
+        return totalItem;
+    }
+
+
+    const contextValue = { getTotalCartItems, getTotalCartAmount, all_products, cartItems, addToCart, removeFromCart }
+
 
     return (
         <>

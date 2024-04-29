@@ -10,6 +10,7 @@ import About from '../src/page/about'
 import App from '../src/App'
 import ShopCategory from '../src/page/shopCategorie'
 import Product from '../src/components/product/product'
+import CartItems from '../src/components/cart/cartItems'
 
 function Index() {
     return (
@@ -32,6 +33,7 @@ function Index() {
                     <Route path='/product' element={<Product />}>
                         <Route path=':id' element={<Product />}/>
                     </Route>
+                    <Route path='/cart' element={<CartItems/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

@@ -1,20 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import AddCart from "../addCart";
 import BuyNow from "../buyNow";
 import Title from "../title";
+import { FaStar } from "react-icons/fa";
+import ShopContext from "../context/shopContext";
+
 
 function ProductDisplay({ item }) {
-    const [numberInCart, setNumberInCart] = useState(0)
 
-    function handleClickAdd() {
-        setNumberInCart(numberInCart + 1)
-    }
+    const { addToCart } = useContext(ShopContext)
 
-    function handleClickDelete() {
-        if (numberInCart > 0) {
-            setNumberInCart(numberInCart - 1)
-        }
-    }
     return (
         <>
             <div className="item-part-of-image">
@@ -22,21 +17,22 @@ function ProductDisplay({ item }) {
             </div>
             <div className="item-title-box">
                 <Title style="item-title">{item?.marque} : {item?.modèle}</Title>
+                <div className="star-icon">
+                    <FaStar style={{ color: "#FFC038", fontSize: "20px" }} />
+                    <FaStar style={{ color: "#FFC038", fontSize: "20px" }} />
+                    <FaStar style={{ color: "#FFC038", fontSize: "20px" }} />
+                    <FaStar style={{ color: "#FFC038", fontSize: "20px" }} />
+                    <FaStar style={{ color: "#ffc0386e", fontSize: "20px" }} />
+                </div>
                 <div className="description">{item?.description}</div>
                 <div className="bar"></div>
                 <div className="couleur">Couleur : {item?.couleur}</div>
                 <div className="bar"></div>
                 <div className="prix">Prix : ${item?.prix}</div>
                 <div className="bar"></div>
-                <div className="cart">
-                    <div className="deleteFromCart" onClick={handleClickDelete}>-</div>
-                    <div className="numberInCart">{numberInCart}</div>
-                    <div className="addCart" onClick={handleClickAdd}>+</div>
-                </div>
-                <div className="button-container">
-                    <AddCart />
-                    <BuyNow />
-                </div>
+                <button className="cart">
+                    <div className="addCart" onClick={() => addToCart(item.id)}>Ajoutez au panier</div>
+                </button>
             </div>
         </>
     )

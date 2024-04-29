@@ -1,14 +1,17 @@
 import { PurchaseAndRental } from "../../data/purchase-and-rental-link";
 import { NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa6";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import SidebarOfNavbar from "./sidebarOfNavbar";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
+import ShopContext from "../context/shopContext";
 
 function NavBar() {
 
     const [isOpen, setIsOpen] = useState(false)
+
+    const { getTotalCartItems } = useContext(ShopContext)
 
     function onSidebar() {
         setIsOpen(true)
@@ -43,7 +46,7 @@ function NavBar() {
                                 <span><FaShoppingCart /></span>
                             </NavLink>
                             <div className="cart-count">
-                                <p>0</p>
+                                <p>{getTotalCartItems()}</p>
                             </div>
                         </div>
                         <div className="login-and-register">
