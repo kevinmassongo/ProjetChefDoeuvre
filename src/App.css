@@ -633,11 +633,11 @@ input:hover {
 
 /* COMPUTERS */
 
-.computer {
+.item {
   margin-top: 40px;
 }
 
-.computer-container {
+.shop-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -833,6 +833,7 @@ input:hover {
 .footer {
   background-color: #0097B2;
   padding: 30px;
+  margin-top: 5%;
 }
 
 .footer .footer-container {
@@ -892,6 +893,19 @@ input:hover {
   font-family: inherit;
   color: white;
   font-weight: 700;
+}
+
+/* PRODUCT */
+
+/* BREADCRUM */
+
+.breadcrum {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
 }
 
 /* RESPONSIVE */

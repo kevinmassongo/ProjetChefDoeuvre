@@ -7,7 +7,7 @@ function PostBags({ bag }) {
         <>
 
             <div className="item-box">
-                <NavLink to={`/bags/${bag.id}`}>
+                <NavLink to={`/bag/${bag.id}`}>
                     <img src={bag.urlToImage}  alt={bag.marque} />
                 </NavLink>
                 <div className="item-title-price">

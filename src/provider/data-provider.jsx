@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ShopContext from "../components/context/shopContext";
-import receiveDataFromApi from "../data/data-arrivals/dataArrivals.json"
+import all_products from "../data/data-arrivals/dataArrivals.json"
 // import {getDefaultCart} from "../helpers/getDefaultCart"
 
 // function getDefaultCart() {
@@ -17,17 +17,7 @@ import receiveDataFromApi from "../data/data-arrivals/dataArrivals.json"
 
 function DataProvider({ children }) {
 
-    const dataFromComputer = receiveDataFromApi.computers
-    const dataFromPhone = receiveDataFromApi.phones
-    const dataFromPant = receiveDataFromApi.pants
-    const dataFromShoe = receiveDataFromApi.shoes
-    const dataFromHeadphone = receiveDataFromApi.headphones
-    const dataFromBag = receiveDataFromApi.bag
-    const dataFromCamera = receiveDataFromApi.cameras
-
-    const contextValue = { dataFromComputer, dataFromPhone, dataFromPant, dataFromShoe, dataFromHeadphone, dataFromBag, dataFromCamera}
-
-
+    const contextValue = {all_products}
 
     return (
         <>
