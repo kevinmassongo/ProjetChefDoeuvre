@@ -1,6 +1,4 @@
-import { useContext, useState } from "react";
-import AddCart from "../addCart";
-import BuyNow from "../buyNow";
+import { useContext } from "react";
 import Title from "../title";
 import { FaStar } from "react-icons/fa";
 import ShopContext from "../context/shopContext";
@@ -18,11 +16,11 @@ function ProductDisplay({ item }) {
             <div className="item-title-box">
                 <Title style="item-title">{item?.marque} : {item?.modèle}</Title>
                 <div className="star-icon">
-                    <FaStar style={{ color: "#FFC038", fontSize: "20px" }} />
-                    <FaStar style={{ color: "#FFC038", fontSize: "20px" }} />
-                    <FaStar style={{ color: "#FFC038", fontSize: "20px" }} />
-                    <FaStar style={{ color: "#FFC038", fontSize: "20px" }} />
-                    <FaStar style={{ color: "#ffc0386e", fontSize: "20px" }} />
+                    <FaStar style={{ color: "#FFC038", fontSize: "20px" }} className="star-icon-one"/>
+                    <FaStar style={{ color: "#FFC038", fontSize: "20px" }} className="star-icon-two"/>
+                    <FaStar style={{ color: "#FFC038", fontSize: "20px" }} className="star-icon-three"/>
+                    <FaStar style={{ color: "#FFC038", fontSize: "20px" }} className="star-icon-four"/>
+                    <FaStar style={{ color: "#ffc0386e", fontSize: "20px" }} className="star-icon-five"/>
                 </div>
                 <div className="description">{item?.description}</div>
                 <div className="bar"></div>
@@ -30,9 +28,9 @@ function ProductDisplay({ item }) {
                 <div className="bar"></div>
                 <div className="prix">Prix : ${item?.prix}</div>
                 <div className="bar"></div>
-                <button className="cart">
+                <div role="button" className="cart-button">
                     <div className="addCart" onClick={() => addToCart(item.id)}>Ajoutez au panier</div>
-                </button>
+                </div>
             </div>
         </>
     )

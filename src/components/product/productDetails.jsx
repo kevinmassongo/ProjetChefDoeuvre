@@ -1,6 +1,6 @@
 import Title from "../title";
 
-function ProductDetails({item}) {
+function ProductDetails({ item }) {
     return (
         <>
             <Title style="title-of-item-detail">

@@ -22,9 +22,9 @@ function Item(props) {
                     <div>{props.marque} : {props.couleur}</div>
                 </div>
             </div>
-            <button className="cart">
+            <div role="button" className="cart-button">
                 <div className="addCart" onClick={() => addToCart(props.id)}>Ajoutez au panier</div>
-            </button>
+            </div>
         </>
     )
 }
