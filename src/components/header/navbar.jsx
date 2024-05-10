@@ -6,6 +6,7 @@ import SidebarOfNavbar from "./sidebarOfNavbar";
 import { FaRegCircleUser } from "react-icons/fa6"; 
 import { FaShoppingCart } from "react-icons/fa"; 
 import ShopContext from "../context/shopContext"; 
+import iconOfSociety from "../../icon/FamilyNaBiso.png"
 
 function NavBar() { 
     const [isOpen, setIsOpen] = useState(false); 
@@ -37,7 +38,7 @@ function NavBar() {
         <> 
             <div className="NavBar"> 
                 <div className="NavBar-container"> 
-                    <NavLink to="/"><img src="./src/icon/FamilyNaBiso.png" alt="" className="logo" /></NavLink> 
+                    <NavLink to="/"><img src={iconOfSociety} alt="logo de la société" className="logo" /></NavLink> 
                     <div className="purchase-and-rental-link"> 
                         { 
                             PurchaseAndRental.map((link) => 

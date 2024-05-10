@@ -1,5 +1,13 @@
 import Title from "../title";
 import { NavLink } from "react-router-dom";
+import imagePhone from '../../images/image-category/telephone.jpg'
+import imageComputer from '../../images/image-category/ordinateur.jpg'
+import imageCamera from '../../images/image-category/caméra.jpg'
+import imageHeadPhone from '../../images/image-category/casque.jpg'
+import imageBag from '../../images/image-category/sac.jpg'
+import imageShoe from '../../images/image-category/basket.jpg'
+import imagePant from '../../images/image-category/pantalon.jpg'
+
 
 function Categorie() {
     return (
@@ -16,37 +24,37 @@ function Categorie() {
                     <div className="section-item-box">
                         <div className="section-item-image">
                             <NavLink to="/phones">
-                                <img src="src/images/image-category/telephone.jpg" alt="phone" />
+                                <img src={imagePhone} alt="phone" />
                             </NavLink>
                         </div>
                         <div className="section-item-image">
                             <NavLink to="/computers">
-                                <img src="src/images/image-category/ordinateur.jpg" alt="computer" />
+                                <img src={imageComputer} alt="computer" />
                             </NavLink>
                         </div>
                         <div className="section-item-image">
                             <NavLink to="/cameras">
-                                <img src="src/images/image-category/caméra.jpg" alt="computer" />
+                                <img src={imageCamera} alt="computer" />
                             </NavLink>
                         </div>
                         <div className="section-item-image">
                             <NavLink to="/headphones">
-                                <img src="src/images/image-category/casque.jpg" alt="computer" />
+                                <img src={imageHeadPhone} alt="computer" />
                             </NavLink>
                         </div>
                         <div className="section-item-image">
                             <NavLink to="/bag">
-                                <img src="src/images/image-category/sac.jpg" alt="computer" />
+                                <img src={imageBag} alt="computer" />
                             </NavLink>
                         </div>
                         <div className="section-item-image">
                             <NavLink to="/shoes">
-                                <img src="src/images/image-category/basket.jpg" alt="computer" />
+                                <img src={imageShoe} alt="computer" />
                             </NavLink>
                         </div>
                         <div className="section-item-image">
                             <NavLink to="/pants">
-                                <img src="src/images/image-category/pantalon.jpg" alt="computer" />
+                                <img src={imagePant} alt="computer" />
                             </NavLink>
                         </div>
                     </div>

@@ -1,4 +1,7 @@
 import Title from "../components/title"
+import iconVodacom from "../icon/vodacom.jpg"
+import iconOrange from "../icon/orange.png"
+import iconAirtel from "../icon/airtel.png"
 
 function Footer() {
     return (
@@ -34,9 +37,9 @@ function Footer() {
                     <div className="footer-payement-container">
                         <Title style="footer-payement-title">NOS MOYENS DE PAIEMENT</Title>
                         <div className="footer-payement-img">
-                            <img src="src/icon/vodacom.jpg" alt="vodacom" />
-                            <img src="src/icon/orange.png" alt="orange" />
-                            <img src="src/icon/airtel.png" alt="airtel" />
+                            <img src={iconVodacom} alt="vodacom" />
+                            <img src={iconOrange} alt="orange" />
+                            <img src={iconAirtel} alt="airtel" />
                         </div>
                     </div>
                 </div>
