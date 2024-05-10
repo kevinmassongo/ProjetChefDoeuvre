@@ -4,10 +4,12 @@ import Title from "../components/title"
 import { NavLink, useNavigate } from "react-router-dom"
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-import iconRegister from "../icon/signin.gif"
+import iconPictureRegister from "../icon/signin.gif"
 import ImageToBase from '../helpers/imageToBase';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import iconRegister from "../icon/register-login-contact.png"
+
 
 function Register() {
     //state
@@ -73,13 +75,13 @@ function Register() {
             <div className="register">
                 <div className="register-container">
                     <div className="image-register">
-                        <img src="src/icon/register-login-contact.png" alt="" />
+                        <img src={iconRegister} alt="" />
                     </div>
                     <div className="register-box">
                         <Title style="inscription">Inscription</Title>
                         <div className='iconRegister'>
                             <div>
-                                <img src={formData.profilePic || iconRegister} alt="icon de l'inscription" />
+                                <img src={formData.profilePic || iconPictureRegister} alt="icon de l'inscription" />
                             </div>
                             <form>
                                 <label>

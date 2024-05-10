@@ -6,6 +6,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import iconLogin from "../icon/register-login-contact.png"
 
 function Login() {
 
@@ -72,7 +73,7 @@ function Login() {
             <div className="login">
                 <div className="login-container">
                     <div className="image-login">
-                        <img src="src/icon/register-login-contact.png" alt="" />
+                        <img src={iconLogin} alt="" />
                     </div>
                     <div className="login-box">
                         <Title style="connexion">Connexion</Title>
