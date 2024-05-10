@@ -11,10 +11,10 @@ function ProductDisplay({ item }) {
     return (
         <>
             <div className="item-part-of-image">
-                <img src={item?.urlToImage} alt={item?.modèle} />
+                <img src={item?.image} alt={item?.modele} />
             </div>
             <div className="item-title-box">
-                <Title style="item-title">{item?.marque} : {item?.modèle}</Title>
+                <Title style="item-title">{item?.marque} : {item?.modele}</Title>
                 <div className="star-icon">
                     <FaStar style={{ color: "#FFC038", fontSize: "20px" }} className="star-icon-one"/>
                     <FaStar style={{ color: "#FFC038", fontSize: "20px" }} className="star-icon-two"/>

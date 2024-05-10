@@ -6,7 +6,6 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import iconRegister from "../icon/signin.gif"
 import ImageToBase from '../helpers/imageToBase';
-import SummaryApi from '../common';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -16,14 +15,12 @@ function Register() {
     const navigate = useNavigate()
 
     const [showPassword, setShowPassword] = useState(false)
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
 
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         password: "",
-        confirmPassword: "",
         profilePic: ""
     })
 
@@ -36,9 +33,8 @@ function Register() {
     //comportements
     const onSubmit = async (users) => {
 
-        if (formData.password === formData.confirmPassword) {
             try {
-                const response = await axios.post('http://localhost:8000/api/user/register', users);
+                const response = await axios.post('http://localhost:8000/register', users);
                 if (response.data.success) {
                     toast.success(response.data.message)
                     navigate("/login")
@@ -51,9 +47,6 @@ function Register() {
             } catch (error) {
                 console.error(error);
             }
-        } else {
-            console.log("Veuillez verifier votre mot de passe ou la confirmation de votre mot de passe");
-        }
     }
 
 
@@ -61,10 +54,6 @@ function Register() {
 
     const togglePasswordVisibility = () => {
         setShowPassword((prev) => !prev)
-    }
-
-    const togglePasswordVisibilityTwo = () => {
-        setShowConfirmPassword((prevTwo) => !prevTwo)
     }
 
     const handleUploadPicture = async (e) => {
@@ -151,35 +140,11 @@ function Register() {
                                     </span>
                                     {errors.password && (
                                         <span style={{ color: "red" }}>
-                                            {errors.phone.message}
+                                            {errors.password.message}
                                         </span>
                                     )}
                                 </div>
-                                <div className="input-container">
-                                    <input type={showConfirmPassword ? "text" : "password"} autoComplete='new-password' name='confirmPassword' placeholder="Confirmez votre mot de passe" className="input-global" {...register("confirmPassword", {
-                                        required: "Ce champ est obligatoire",
-                                        minLength: 8,
-                                        pattern: {
-                                            value: /^[a-zA-Z0-9_]/i,
-                                            message: "Ce champ n'est pas au bon format"
-                                        }
-                                    })} />
-                                    <span onClick={togglePasswordVisibilityTwo}>
-                                        {
-                                            showConfirmPassword ? (
-                                                <FaEyeSlash />
-                                            )
-                                                : (
-                                                    <FaEye />
-                                                )
-                                        }
-                                    </span>
-                                    {errors.confirmPassword && (
-                                        <span style={{ color: "red" }}>
-                                            {errors.phone.message}
-                                        </span>
-                                    )}
-                                </div>
+                                
                             </div>
                             <button alt="Créer un compte" type='submit' className="submit">
                                 <i>C</i>

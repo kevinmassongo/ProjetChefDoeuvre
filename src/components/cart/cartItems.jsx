@@ -9,7 +9,7 @@ function CartItems({ e }) {
     return (
         <>
             <div className="cart-items-format cart-items-format-main" key={e.id}>
-                <img src={e.urlToImage} alt="" className="cartIcon-product-icon" />
+                <img src={e.image} alt="" className="cartIcon-product-icon" />
                 <div>{e.marque}</div>
                 <div>{e.modèle}</div>
                 <div>${e.prix}</div>

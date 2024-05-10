@@ -28,21 +28,41 @@ function Login() {
 
     //comportements
     const onSubmit = async (users) => {
-            try {
-                const response = await axios.post('http://localhost:8000/api/user/login', users);
-                if (response.data.success) {
-                    toast.success(response.data.message)
-                    navigate("/")
-                }
+        try {
+            const response = await axios.post('http://localhost:8000/login', users);
+            if (response.data.success) {
+                localStorage.setItem('auth-token', response.data.token);
+                
+                // Afficher le message de succès
 
-                if (response.data.error) {
-                    toast.error(response.data.message)
-                }
-                console.log(response.data);
-            } catch (error) {
-                console.error(error);
+                if(response.data.user.role === 'admin') {
+                    toast.success(response.data.message);
+
+                    // Attendre une seconde avant de rafraîchir la page
+                    setTimeout(() => {
+                        navigate("/admin");
+                        window.location.reload();
+                    }, 3000);
+                } else{
+                    toast.success(response.data.message);
+
+                    // Attendre une seconde avant de rafraîchir la page
+                    setTimeout(() => {
+                        navigate("/");
+                        window.location.reload();
+                    }, 3000);
+                    console.log(response.data);
+                }                
             }
-    }
+    
+            if (response.data.error) {
+                toast.error(response.data.message);
+            }
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     const togglePasswordVisibility = () => {
         setShowPassword((prev) => !prev)

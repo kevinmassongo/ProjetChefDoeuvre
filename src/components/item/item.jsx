@@ -12,7 +12,7 @@ function Item(props) {
 
             <div className="item-box">
                 <NavLink to={`/product/${props.id}`}>
-                    <img src={props.urlToImage} alt={props.marque} />
+                    <img src={props.image} alt={props.marque} className="product-image"/>
                 </NavLink>
                 <div className="item-title-price">
                     <Title style="item-marque">{props.marque}</Title>

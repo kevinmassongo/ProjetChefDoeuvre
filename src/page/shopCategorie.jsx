@@ -8,9 +8,9 @@ function ShopCategory(props) {
         <div className="shop-container">
             {
                 all_products.map((item) => {
-                    if (props.catégorie === item.catégorie) {
+                    if (props.categorie === item.categorie) {
                         return <div key={item.id} className="item">
-                            <Item urlToImage={item.urlToImage} catégorie={item.catégorie} id={item.id} modèle={item.modèle} prix={item.prix} couleur={item.couleur} marque={item.marque} />
+                            <Item image={item.image} categorie={item.categorie} id={item.id} modele={item.modele} prix={item.prix} couleur={item.couleur} marque={item.marque} />
                         </div>
                     }
                 })

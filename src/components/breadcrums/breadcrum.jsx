@@ -5,7 +5,7 @@ function BreadCrum({ item }) {
         <>
             <div className="breadcrum">
                 <div>
-                    <span>Home</span> <img src={arrowRight} alt="" /> <span>Shop</span> <img src={arrowRight} alt="" /> <span>{item.catégorie}</span> <img src={arrowRight} alt="" /> <span>{item.marque}</span>
+                    <span>Home</span> <img src={arrowRight} alt="" /> <span>Shop</span> <img src={arrowRight} alt="" /> <span>{item.categorie}</span> <img src={arrowRight} alt="" /> <span>{item.marque}</span>
                 </div>
             </div>
         </>

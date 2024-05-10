@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ShopContext from "../context/shopContext";
 import ProductDisplay from "./productDisplay";
 import ProductDetails from "./productDetails";
-import BreadCrum from "../breadcrums/breadcrum";
+// import BreadCrum from "../breadcrums/breadcrum";
 
 function Product() {
 
@@ -23,10 +23,12 @@ function Product() {
     if (!item) {
         <p>L'article que vous avez demandé n'existe pas</p>
     }
+
+    console.log(item);
     return (
         <>
             <div>
-                <BreadCrum item={item} />
+                {/* <BreadCrum item={item} /> */}
                 <div className="item-container">
                     <ProductDisplay item={item} />
                 </div>

@@ -19,7 +19,7 @@ function Cart () {
             {
                 all_products.map((e) => {
                     if (cartItems[e.id] > 0) {
-                        return <CartItems e={e} />
+                        return <CartItems e={e} key={e.id} />
                     }
                     return null
                 })
