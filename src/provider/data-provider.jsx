@@ -22,7 +22,7 @@ function DataProvider({ children }) {
     const [cartItems, setCartItems] = useState(getDefaultCart())
 
     useEffect(() => {
-        fetch('http://localhost:8000/allproducts')
+        fetch('https://capstone2-c2-kevinmassongo-1.onrender.com/allproducts')
             .then((response) => response.json())
             .then((data) => setAll_products(data))
 

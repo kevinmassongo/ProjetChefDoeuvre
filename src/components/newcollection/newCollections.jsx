@@ -6,7 +6,7 @@ function NewCollections() {
     const [new_collections, setNew_collections] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:8000/newcollections')
+        fetch('https://capstone2-c2-kevinmassongo-1.onrender.com/newcollections')
             .then((response) => response.json())
             .then((data) => setNew_collections(data))
     }, [])
