@@ -8,7 +8,9 @@ import iconPictureRegister from "../icon/signin.gif"
 import ImageToBase from '../helpers/imageToBase';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import iconRegister from "../icon/register-login-contact.png"
+import iconRegister from "../icon/register-login-contact.png";
+import iconVodacom from "../icon/facebook.svg";
+import iconTwitter from "../icon/twitter.svg"
 
 
 function Register() {
@@ -170,11 +172,11 @@ function Register() {
                             <h3>Continuez avec</h3>
                             <div className="register-social-networks-box">
                                 <div className="register-social-networks-box-content">
-                                    <img src="src/icon/facebook.svg" alt="" />
+                                    <img src={iconVodacom} alt="icon-vodacom" />
                                     <div>Facebook</div>
                                 </div>
                                 <div className="register-social-networks-box-content">
-                                    <img src="src/icon/twitter.svg" alt="" />
+                                    <img src={iconTwitter} alt="icon-twitter" />
                                     <div>Twitter</div>
                                 </div>
                             </div>
