@@ -58,7 +58,7 @@ function AddProduct() {
         if (responseData.success) {
             product.image = responseData.image_url
             console.log(product);
-            await fetch('http://localhost:8000/addproduct', {
+            await fetch('https://capstone2-c2-kevinmassongo-1.onrender.com/addproduct', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
