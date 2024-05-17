@@ -30,7 +30,7 @@ function Login() {
     //comportements
     const onSubmit = async (users) => {
         try {
-            const response = await axios.post('http://localhost:8000/login', users);
+            const response = await axios.post('https://capstone2-c2-kevinmassongo-1.onrender.com/login', users);
             if (response.data.success) {
                 localStorage.setItem('auth-token', response.data.token);
                 

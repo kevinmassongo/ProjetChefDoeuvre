@@ -38,7 +38,7 @@ function Register() {
     const onSubmit = async (users) => {
 
             try {
-                const response = await axios.post('http://localhost:8000/register', users);
+                const response = await axios.post('https://capstone2-c2-kevinmassongo-1.onrender.com/register', users);
                 if (response.data.success) {
                     toast.success(response.data.message)
                     navigate("/login")

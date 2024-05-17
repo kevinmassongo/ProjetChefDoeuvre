@@ -27,7 +27,7 @@ function DataProvider({ children }) {
             .then((data) => setAll_products(data))
 
         if (localStorage.getItem('auth-token')) {
-            fetch('http://localhost:8000/getcart', {
+            fetch('https://capstone2-c2-kevinmassongo-1.onrender.com/getcart', {
                 method: 'POST',
                 headers: {
                     Accept: 'Application/form-data',
@@ -46,7 +46,7 @@ function DataProvider({ children }) {
     const addToCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
         if (localStorage.getItem('auth-token')) {
-            fetch('http://localhost:8000/addtocart', {
+            fetch('https://capstone2-c2-kevinmassongo-1.onrender.com/addtocart', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',
@@ -65,7 +65,7 @@ function DataProvider({ children }) {
     const removeFromCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
         if (localStorage.getItem('auth-token')) {
-            fetch('http://localhost:8000/removefromcart', {
+            fetch('https://capstone2-c2-kevinmassongo-1.onrender.com/removefromcart', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',

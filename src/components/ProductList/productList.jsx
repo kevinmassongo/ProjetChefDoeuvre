@@ -8,7 +8,7 @@ function ProductList() {
     const [allProducts, setAllProducts] = useState([])
 
     const fetchInfo = async () => {
-        await fetch('http://localhost:8000/allproducts')
+        await fetch('https://capstone2-c2-kevinmassongo-1.onrender.com/allproducts')
             .then((res) => res.json())
             .then((data => { setAllProducts(data) }))
     }
@@ -18,7 +18,7 @@ function ProductList() {
     }, [])
 
     const remove_product = async (id) => {
-        await fetch(`http://localhost:8000/removeproduct/${id}`, {
+        await fetch(`https://capstone2-c2-kevinmassongo-1.onrender.com/removeproduct/${id}`, {
             method: 'DELETE',
             headers: {
                 Accept: 'Application/json',

@@ -7,7 +7,7 @@ function UserList() {
     const [allUsers, setAllUsers] = useState([])
 
     const fetchInfo = async () => {
-        await fetch('http://localhost:8000/allusers')
+        await fetch('https://capstone2-c2-kevinmassongo-1.onrender.com/allusers')
             .then((res) => res.json())
             .then((data => { setAllUsers(data) }))
     }

@@ -6,7 +6,7 @@ function Rental() {
     const [rentalproduct, setRentalproduct] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:8000/rentalproduct')
+        fetch('https://capstone2-c2-kevinmassongo-1.onrender.com/rentalproduct')
             .then((response) => response.json())
             .then((data) => setRentalproduct(data))
     }, [])
