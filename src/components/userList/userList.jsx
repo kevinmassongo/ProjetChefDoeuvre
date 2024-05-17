@@ -20,8 +20,8 @@ function UserList() {
         <>
             <NavBarForAdmin />
             <div className="list-user-container">
-                <Link to='/admin'>
-                    <button className="return">Retour</button>
+                <Link to='/admin' className="container-back-button">
+                    <div role="button" className="back-button">Retour</div>
                 </Link>
                 <div className="list-user">
                     <h1>Liste de tous les produits</h1>

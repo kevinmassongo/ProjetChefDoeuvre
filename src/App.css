@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
@@ -255,7 +259,7 @@ input:hover {
   width: 25px;
   display: flex;
   justify-content: center;
-  top: -2px;
+  top: -12px;
   height: 25px;
   right: -15px;
   border-radius: 50%;
@@ -268,7 +272,7 @@ input:hover {
 
 .sidebar-of-navbar {
   position: absolute;
-  background-color: tomato;
+  background-color: #7B7B7B;
   width: 200px;
   z-index: 99;
   overflow: hidden;
@@ -285,7 +289,7 @@ input:hover {
 }
 
 .sidebar-of-navbar.open {
-  height: 150px;
+  height: 135px;
 }
 
 .sidebar-of-navbar-container .link-to-navbar {
@@ -310,6 +314,7 @@ input:hover {
 
 .closeSidebar {
   cursor: pointer;
+  color: white;
 }
 
 .onSidebar {
@@ -787,6 +792,11 @@ input:hover {
   padding-top: 60px;
 }
 
+.star-icon {
+  display: flex;
+  margin: 10px 0;
+}
+
 .title-of-item-detail {
   font-size: 1.5rem;
 }
@@ -872,6 +882,8 @@ input:hover {
 
 .footer-payement .footer-payement-img {
   margin-top: 20px;
+  display: flex;
+  gap: 10px;
 }
 
 
@@ -881,9 +893,6 @@ input:hover {
   object-fit: cover;
 }
 
-.footer-payement .footer-payement-img img+img {
-  margin-left: 10px;
-}
 
 .footer-payement-title {
   font-size: 1.5rem;
@@ -987,7 +996,6 @@ input:hover {
 
 
 /* NAVBAR FOR ADMIN */
-
 .navbarForAdmin {
   display: flex;
   justify-content: space-between;
@@ -1049,6 +1057,10 @@ input:hover {
 }
 
 /* ADD PRODUCT PAGE */
+
+.products{
+  background-color: #D3D3D3;
+}
 
 .add-product {
   display: flex;
@@ -1222,14 +1234,25 @@ input:hover {
   object-fit: cover;
 }
 
-.return {
+.container-back-button {
+  display: grid;
+  width: 100%;
+  max-width: 1200px;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.back-button {
   border: none;
   padding: 5px 10px;
   background-color: #0097B2;
   color: white;
   font-weight: 600;
   border-radius: 5px;
-  margin: 20px 80px 0px 80px;
+  text-align: center;
+  width: 100px;
+  margin: 20px 0;
 }
 
 .whatsapp {
@@ -1955,6 +1978,8 @@ input:hover {
     display: flex;
   }
 
+  
+
   .star-icon .star-icon-one,
   .star-icon-two,
   .star-icon-three,
@@ -2346,6 +2371,12 @@ input:hover {
     font-size: 14px;
     border-radius: 50px;
     width: 100px;
+  }
+
+  /* ADMIN PAGE */
+  
+  .sidebarForAdmin {
+    flex-direction: column;
   }
 }
 

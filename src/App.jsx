@@ -4,6 +4,7 @@ import Header from './components/header/header'
 import Footer from './page/footer'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import MainComponent from './components/mainComponent';
 
 function App() {
   
