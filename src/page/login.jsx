@@ -7,10 +7,14 @@ import { FaEyeSlash } from "react-icons/fa";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import iconLogin from "../icon/register-login-contact.png"
+import NavBar from '../components/header/navbar';
+import { TbBackground } from 'react-icons/tb';
 
 function Login() {
 
     // STATE
+
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const navigate = useNavigate()
 
@@ -37,6 +41,7 @@ function Login() {
                 // Afficher le message de succès
 
                 if(response.data.user.role === 'admin') {
+                    setIsAdmin(true);
                     toast.success(response.data.message);
 
                     // Attendre une seconde avant de rafraîchir la page
@@ -45,6 +50,7 @@ function Login() {
                         window.location.reload();
                     }, 3000);
                 } else{
+                    setIsAdmin(false);
                     toast.success(response.data.message);
 
                     // Attendre une seconde avant de rafraîchir la page
